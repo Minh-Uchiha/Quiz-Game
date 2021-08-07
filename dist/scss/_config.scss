@@ -1,0 +1,23 @@
+$background_color_1: rgb(247, 247, 247);
+$background_color_2: rgb(0, 60, 95);
+$background_color_3: rgb(112, 198, 255);
+$link_color: rgb(124, 204, 250);
+$button_color: rgb(8, 17, 24);
+$text_color: rgb(20, 141, 211);
+$question_icon: rgb(0, 117, 196);
+$score_display: rgba(158, 216, 255, 0.9);
+$key_active: rgb(142, 238, 255);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: $background_color_3;
+  overflow: hidden;
+}

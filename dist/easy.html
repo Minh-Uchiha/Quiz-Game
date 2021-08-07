@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/31d86dd404.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/main.js" type="module" defer></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Easy</title>
+  </head>
+  <body>
+    <div class="menu">
+      <ul class="btns">
+        <li class="back">
+          <a href="./index.html"
+            ><i class="fas fa-chevron-circle-left fa-2x"></i
+          ></a>
+        </li>
+        <li class="give_up">
+          <button>Submit</button>
+        </li>
+        <li class="restart">
+          <button>Start over</button>
+        </li>
+      </ul>
+      <span class="time">
+        Time:
+        <p>15:00</p>
+      </span>
+    </div>
+
+    <section class="quiz_board">
+      <div class="question">
+        <i class="far fa-question-circle fa-2x"></i>
+        <h2></h2>
+        <div class="hint">
+          <button class="btn_hint">Gợi ý</button>
+          <small>Con vật này sống dưới biển</small>
+        </div>
+      </div>
+      <div class="answers">
+        <div class="A">
+          <span class="letter">A</span>
+          <span class="ans"></span>
+        </div>
+        <div class="B">
+          <span class="letter">B</span>
+          <span class="ans"></span>
+        </div>
+        <div class="C">
+          <span class="letter">C</span>
+          <span class="ans"></span>
+        </div>
+        <div class="D">
+          <span class="letter">D</span>
+          <span class="ans"></span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <button class="prev">
+        <i class="fas fa-long-arrow-alt-left fa-2x"></i>
+      </button>
+      <button class="next">
+        <i class="fas fa-long-arrow-alt-right fa-2x"></i>
+      </button>
+    </footer>
+
+    <section class="score_display">
+      <div class="score_board">
+        <h1>Score</h1>
+        <h3 class="score">100</h3>
+        <button class="restart">Try again</button>
+      </div>
+    </section>
+  </body>
+</html>

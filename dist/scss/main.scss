@@ -1,0 +1,437 @@
+@import "config", "keyframes";
+
+.background_banner {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 70vw;
+  height: 80%;
+  display: none;
+
+  .img_banner {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+
+    // Animate SVG
+
+    #hand_book {
+      animation: hand_book_move 2s linear infinite;
+      transform-origin: top;
+      transform-box: fill-box;
+    }
+
+    #question_mark_dot {
+      animation: question_mark_dot_move 4s linear infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+
+    #question_mark_upper {
+      animation: question_mark_upper_move 4s linear infinite;
+      transform-origin: bottom;
+      transform-box: fill-box;
+    }
+
+    #girl_right_hand {
+      animation: girl_right_hand_move 2s linear infinite;
+      transform-origin: top;
+      transform-box: fill-box;
+    }
+
+    #girl_head {
+      animation: girl_head_move 2s linear infinite;
+      transform-origin: top;
+      transform-box: fill-box;
+    }
+
+    #boy_head {
+      animation: boy_head_move 2s linear infinite;
+      transform-origin: top;
+      transform-box: fill-box;
+    }
+  }
+}
+
+header {
+  text-align: center;
+  background-color: $background_color_1;
+  padding: 50px 0;
+
+  p {
+    color: $text_color;
+  }
+}
+
+.container.panel {
+  width: 400px;
+  height: 450px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -36%);
+
+  h3 {
+    text-align: center;
+    font-size: 1.3rem;
+    color: $background_color_2;
+    background-color: $background_color_1;
+    padding: 8px 0;
+    border-bottom: 2px solid $background_color_2;
+  }
+
+  .container.levels {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: $background_color_1;
+
+    .wrapper {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      div {
+        background-color: $button_color;
+        width: 100px;
+        height: 40px;
+        position: relative;
+        z-index: 2;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 50%;
+          right: 50%;
+          opacity: 0;
+          bottom: 0;
+          background-color: $link_color;
+          transition: all 0.5s;
+        }
+
+        &:hover {
+          &::before {
+            left: 0;
+            right: 0;
+            opacity: 1;
+            z-index: -1;
+          }
+
+          a {
+            color: $button_color;
+          }
+        }
+
+        a {
+          display: inline-block;
+          height: 100%;
+          width: 100%;
+          text-align: center;
+          line-height: 40px;
+          color: $link_color;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  height: 10vh;
+  background-color: $background_color_1;
+
+  .time {
+    margin: auto 0;
+
+    p {
+      display: inline-block;
+    }
+  }
+
+  .btns {
+    display: flex;
+    width: 350px;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+    li {
+      list-style-type: none;
+
+      &.back i {
+        color: $text_color;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $button_color;
+        }
+      }
+
+      button {
+        padding: 8px;
+        width: 120px;
+        text-align: center;
+        background-color: $button_color;
+        color: $link_color;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        box-shadow: inset 0 0 0 0 $link_color;
+        transition: all 0.3s;
+
+        &:hover {
+          box-shadow: inset 120px 0 0 0 $link_color;
+          color: $button_color;
+        }
+      }
+    }
+  }
+}
+
+section.quiz_board {
+  max-width: 700px;
+  width: 90%;
+  height: 65vh;
+  background-color: $background_color_1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+
+  .question {
+    height: 30%;
+    width: 100%;
+    padding: 10px;
+    position: relative;
+
+    h2 {
+      font-size: 1.5rem;
+      display: inline-block;
+    }
+
+    i {
+      color: $question_icon;
+    }
+
+    .hint {
+      position: absolute;
+      bottom: 5px;
+
+      .btn_hint {
+        border: 2px solid $text_color;
+        color: $text_color;
+        width: 50px;
+        padding: 3px 0;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      small {
+        color: red;
+        display: none;
+      }
+    }
+  }
+
+  .answers {
+    height: 70%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+
+    div {
+      position: relative;
+      padding: 10px;
+      transition: transform 0.5s;
+      margin: 10px;
+      z-index: 1;
+
+      &.chosen {
+        border: 3px solid $question_icon;
+        border-radius: 15px;
+      }
+
+      &::before {
+        transition: all 0.7s;
+        content: "";
+        position: absolute;
+        background-color: $text_color;
+        border-radius: 30px;
+        top: 0;
+        left: 50%;
+        right: 50%;
+        bottom: 0;
+        z-index: -1;
+        opacity: 0;
+      }
+
+      &:hover {
+        transform: scale(1.2, 1.2);
+        border: none;
+
+        &::before {
+          opacity: 1;
+          left: 0;
+          right: 0;
+        }
+
+        .ans {
+          color: $background_color_1;
+        }
+
+        .letter {
+          background-color: $button_color;
+        }
+      }
+
+      &:active {
+        .ans {
+          color: $button_color;
+        }
+
+        &::before {
+          transition: background-color 0.2s;
+          background-color: $key_active;
+        }
+      }
+    }
+
+    span {
+      display: inline-block;
+      font-size: 1.2rem;
+
+      &.letter {
+        position: absolute;
+        left: 15px;
+        top: 10px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 50%;
+        text-align: center;
+        background-color: $question_icon;
+        color: $background_color_1;
+        transition: color 0.5s;
+      }
+
+      &.ans {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $text_color;
+        transition: color 0.5s;
+      }
+    }
+  }
+}
+
+footer {
+  height: 10vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $background_color_1;
+
+  button {
+    width: 80px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: $button_color;
+    box-shadow: inset 0 0 0 0 $link_color;
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      i {
+        color: $button_color;
+      }
+    }
+
+    &.prev:hover {
+      box-shadow: inset -80px 0 0 0 $link_color;
+    }
+
+    &.next:hover {
+      box-shadow: inset 80px 0 0 0 $link_color;
+    }
+
+    i {
+      color: $link_color;
+    }
+  }
+}
+
+.score_display {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: $score_display;
+
+  .score_board {
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 15px;
+    background-color: $background_color_1;
+
+    h1 {
+      font-size: 1.6rem;
+      color: $button_color;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      color: $text_color;
+    }
+
+    button {
+      padding: 8px 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: $button_color;
+      color: $link_color;
+      box-shadow: inset 0 0 0 0 $text_color;
+      transition: all 0.5s;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: inset 120px 0 0 0 $text_color;
+        color: $background_color_1;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .container.panel {
+    left: 80%;
+  }
+
+  .background_banner {
+    display: block;
+  }
+}
